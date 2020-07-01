@@ -1,0 +1,66 @@
+// IP2Location.idl : IDL source for IP2Location.dll
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (IP2Location.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+	[
+		object,
+		uuid(B53BD908-F2EE-4EE7-9561-F265DCDF32DD),
+		dual,
+		helpstring("ICountry Interface"),
+		pointer_default(unique)
+	]
+	interface ICountry : IDispatch
+	{
+		[id(1), helpstring("method LookUpShortName")] HRESULT LookUpShortName([in] BSTR ipaddr, [out,retval] BSTR* retval);
+		[id(2), helpstring("method LookUpLongName")] HRESULT LookUpLongName([in] BSTR ipaddr, [out,retval] BSTR* retval);
+		[id(3), helpstring("method LookUpFullName")] HRESULT LookUpFullName([in] BSTR ipaddr, [out,retval] BSTR* retval);
+		[id(4), helpstring("method CountryCodeToName")] HRESULT CountryCodeToName([in] BSTR code, [out,retval] BSTR* retval);
+		[id(5), helpstring("method Initialize")] HRESULT Initialize([in] BSTR regcode, [out, retval] BSTR* retval);
+		[id(6), helpstring("method Version")] HRESULT Version([out, retval] BSTR* retval);
+		[id(7), helpstring("method LookUp")] HRESULT LookUp([in] BSTR binpath, BSTR ipaddr, [out, retval] BSTR* retval);
+		[propget, id(8), helpstring("property CountryShort")] HRESULT CountryShort([out, retval] BSTR* pVal);
+		[propget, id(9), helpstring("property CountryLong")] HRESULT CountryLong([out, retval] BSTR* pVal);
+		[propget, id(10), helpstring("property Region")] HRESULT Region([out, retval] BSTR* pVal);
+		[propget, id(11), helpstring("property City")] HRESULT City([out, retval] BSTR* pVal);
+		[propget, id(12), helpstring("property Latitude")] HRESULT Latitude([out, retval] BSTR* pVal);
+		[propget, id(13), helpstring("property Longitude")] HRESULT Longitude([out, retval] BSTR* pVal);
+		[propget, id(14), helpstring("property ZIPCode")] HRESULT ZIPCode([out, retval] BSTR* pVal);
+		[propget, id(15), helpstring("property TimeZone")] HRESULT TimeZone([out, retval] BSTR* pVal);
+		[propget, id(16), helpstring("property ISP")] HRESULT ISP([out, retval] BSTR* pVal);
+		[propget, id(17), helpstring("property Domain")] HRESULT Domain([out, retval] BSTR* pVal);
+		[propget, id(18), helpstring("property NetSpeed")] HRESULT NetSpeed([out, retval] BSTR* pVal);
+		[propget, id(19), helpstring("property IDDCode")] HRESULT IDDCode([out, retval] BSTR* pVal);
+		[propget, id(20), helpstring("property AreaCode")] HRESULT AreaCode([out, retval] BSTR* pVal);
+		[propget, id(21), helpstring("property WeatherStationCode")] HRESULT WeatherStationCode([out, retval] BSTR* pVal);
+		[propget, id(22), helpstring("property WeatherStationName")] HRESULT WeatherStationName([out, retval] BSTR* pVal);
+		[propget, id(23), helpstring("property MCC")] HRESULT MCC([out, retval] BSTR* pVal);
+		[propget, id(24), helpstring("property MNC")] HRESULT MNC([out, retval] BSTR* pVal);
+		[propget, id(25), helpstring("property MobileBrand")] HRESULT MobileBrand([out, retval] BSTR* pVal);
+		[propget, id(26), helpstring("property Elevation")] HRESULT Elevation([out, retval] BSTR* pVal);
+		[propget, id(27), helpstring("property UsageType")] HRESULT UsageType([out, retval] BSTR* pVal);
+		[propget, id(28), helpstring("property IsRegistered")] HRESULT IsRegistered([out, retval] VARIANT_BOOL* pVal);
+	};
+
+[
+	uuid(F08FE0D3-20CA-4409-9E6B-C07D90766E12),
+	version(1.0),
+	helpstring("IP2Location 1.0 Type Library")
+]
+library IP2LOCATIONLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	[
+		uuid(A3C8BFFA-1496-4188-A2BC-355A0B3DA0A7),
+		helpstring("Country Class")
+	]
+	coclass Country
+	{
+		[default] interface ICountry;
+	};
+};

@@ -1,0 +1,26 @@
+HKCR
+{
+	IP2Location.Country.1 = s 'Country Class'
+	{
+		CLSID = s '{A3C8BFFA-1496-4188-A2BC-355A0B3DA0A7}'
+	}
+	IP2Location.Country = s 'Country Class'
+	{
+		CLSID = s '{A3C8BFFA-1496-4188-A2BC-355A0B3DA0A7}'
+		CurVer = s 'IP2Location.Country.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {A3C8BFFA-1496-4188-A2BC-355A0B3DA0A7} = s 'Country Class'
+		{
+			ProgID = s 'IP2Location.Country.1'
+			VersionIndependentProgID = s 'IP2Location.Country'
+			ForceRemove 'Programmable'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			'TypeLib' = s '{F08FE0D3-20CA-4409-9E6B-C07D90766E12}'
+		}
+	}
+}

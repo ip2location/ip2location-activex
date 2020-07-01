@@ -1,0 +1,9 @@
+; IP2Location.def : Declares the module parameters.
+
+LIBRARY      "IP2Location.DLL"
+
+EXPORTS
+	DllCanUnloadNow      PRIVATE
+	DllGetClassObject    PRIVATE
+	DllRegisterServer    PRIVATE
+	DllUnregisterServer	 PRIVATE
