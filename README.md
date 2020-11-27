@@ -1,9 +1,9 @@
-# IP2Location ActiveX Component
+# IP2Location IP Geolocation ActiveX Component
 
-This component allows user to query an IP address for its geolocation info such as country, region or state, city, latitude and longitude, ZIP/Postal code, time zone, Internet Service Provider (ISP) or company name, domain name, net speed, area code, weather station code, weather station name, mobile country code (MCC), mobile network code (MNC) and carrier brand, elevation, and usage type. It lookup the IP address from **IP2Location BIN Data** file. This data file can be downloaded at
+This IP2Location IP Geolocation ActiveX Component allows user to query an IP address for useful IP geolocation info such as country, region or state, city, latitude and longitude, ZIP/Postal code, time zone, Internet Service Provider (ISP) or company name, domain name, net speed, area code, weather station code, weather station name, mobile country code (MCC), mobile network code (MNC) and carrier brand, elevation, and usage type. This IP geolocation component uses **IP2Location BIN Data** file to lookup IP addresses and the binary data file can be downloaded at
 
-* Free IP2Location BIN Data: https://lite.ip2location.com
-* Commercial IP2Location BIN Data: https://www.ip2location.com/database/ip2location
+* Free IP2Location IP Geolocation BIN Data: https://lite.ip2location.com
+* Commercial IP2Location IP Geolocation BIN Data: https://www.ip2location.com/database/ip2location
 
 ## Requirements
 
