@@ -57,6 +57,8 @@ Public Class IP2Location
             line += "<tr><td>MobileBrand = " & obj.MobileBrand & "</td></tr>"
             line += "<tr><td>Elevation = " & obj.Elevation & "</td></tr>"
             line += "<tr><td>UsageType = " & obj.UsageType & "</td></tr>"
+            line += "<tr><td>AddressType = " & obj.AddressType & "</td></tr>"
+            line += "<tr><td>Category = " & obj.Category & "</td></tr>"
             line += "</table>"
         Else
             line += "Error : " & str & "<br>"

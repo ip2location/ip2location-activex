@@ -44,6 +44,8 @@ Enter an IPv4 or IPv6 address.
 			line = line & "<tr><td>MobileBrand = " & obj.MobileBrand & "</td></tr>"
 			line = line & "<tr><td>Elevation = " & obj.Elevation & "</td></tr>"
 			line = line & "<tr><td>UsageType = " & obj.UsageType & "</td></tr>"
+			line = line & "<tr><td>AddressType = " & obj.AddressType & "</td></tr>"
+			line = line & "<tr><td>Category = " & obj.Category & "</td></tr>"
 			Response.Write(line)
 			Response.Write	"</table>"
 		Else

@@ -42,7 +42,9 @@ import "ocidl.idl";
 		[propget, id(25), helpstring("property MobileBrand")] HRESULT MobileBrand([out, retval] BSTR* pVal);
 		[propget, id(26), helpstring("property Elevation")] HRESULT Elevation([out, retval] BSTR* pVal);
 		[propget, id(27), helpstring("property UsageType")] HRESULT UsageType([out, retval] BSTR* pVal);
-		[propget, id(28), helpstring("property IsRegistered")] HRESULT IsRegistered([out, retval] VARIANT_BOOL* pVal);
+		[propget, id(28), helpstring("property AddressType")] HRESULT AddressType([out, retval] BSTR* pVal);
+		[propget, id(29), helpstring("property Category")] HRESULT Category([out, retval] BSTR* pVal);
+		[propget, id(30), helpstring("property IsRegistered")] HRESULT IsRegistered([out, retval] VARIANT_BOOL* pVal);
 	};
 
 [

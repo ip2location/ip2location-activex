@@ -41,6 +41,8 @@ Enter an IPv4 or IPv6 address.
 			$line = $line . "<tr><td>MobileBrand = " . $Obj->MobileBrand . "</td></tr>";
 			$line = $line . "<tr><td>Elevation = " . $Obj->Elevation . "</td></tr>";
 			$line = $line . "<tr><td>UsageType = " . $Obj->UsageType . "</td></tr>";
+			$line = $line . "<tr><td>AddressType = " . $Obj->AddressType . "</td></tr>";
+			$line = $line . "<tr><td>Category = " . $Obj->Category . "</td></tr>";
 			echo $line;
 			echo "</table>";
 		}

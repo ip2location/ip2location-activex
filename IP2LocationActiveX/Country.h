@@ -6,7 +6,7 @@
 #include "resource.h"       // main symbols
 #include "IP2LocationCom.h"
 
-class ATL_NO_VTABLE CCountry : 
+class ATL_NO_VTABLE CCountry :
 	public CComObjectRootEx<CComMultiThreadModel>,
 	public CComCoClass<CCountry, &CLSID_Country>,
 	public ISupportErrorInfo,
@@ -15,15 +15,15 @@ class ATL_NO_VTABLE CCountry :
 private:
 
 	bool registered;
-	FILE * m_fLogger ;
+	FILE* m_fLogger;
 	char* GetCodeByIPAddress(BSTR ipaddr, short mode);
 	unsigned long GetIPNoByIPAddress(BSTR ipaddr);
-	char* GetFullNameByCode (BSTR code);
-	char* GetAuthorization (BSTR code);
-	bool ProcessIP(IP2LocationRecord ** record , char* IP);
-	void doLogging( char * Message );
-	IP2Location * m_IP2LocationObj;
-	char *m_pIPDBPath;
+	char* GetFullNameByCode(BSTR code);
+	char* GetAuthorization(BSTR code);
+	bool ProcessIP(IP2LocationRecord** record, char* IP);
+	void doLogging(char* Message);
+	IP2Location* m_IP2LocationObj;
+	char* m_pIPDBPath;
 	char m_CountryShort[3];
 	char m_CountryLong[256];
 	char m_Region[256];
@@ -44,51 +44,55 @@ private:
 	char m_MobileBrand[256];
 	char m_Elevation[256];
 	char m_UsageType[256];
+	char m_AddressType[2];
+	char m_Category[256];
 	char m_Message[1024];
 
 public:
 	CCountry()
 	{
 		registered = true; // license not required anymore
-		strcpy(m_CountryShort,INVALID_PROCEDURE);
-		strcpy(m_CountryLong,INVALID_PROCEDURE);
-		strcpy(m_Region,INVALID_PROCEDURE);
-		strcpy(m_City,INVALID_PROCEDURE);
-		strcpy(m_Latitude,INVALID_PROCEDURE);
-		strcpy(m_Longitude,INVALID_PROCEDURE);
-		strcpy(m_ZIPCode,INVALID_PROCEDURE);
-		strcpy(m_TimeZone,INVALID_PROCEDURE);
-		strcpy(m_ISP,INVALID_PROCEDURE);
-		strcpy(m_Domain,INVALID_PROCEDURE);
-		strcpy(m_NetSpeed,INVALID_PROCEDURE);
-		strcpy(m_IDDCode,INVALID_PROCEDURE);
-		strcpy(m_AreaCode,INVALID_PROCEDURE);
-		strcpy(m_WeatherStationCode,INVALID_PROCEDURE);
-		strcpy(m_WeatherStationName,INVALID_PROCEDURE);
-		strcpy(m_MCC,INVALID_PROCEDURE);
-		strcpy(m_MNC,INVALID_PROCEDURE);
-		strcpy(m_MobileBrand,INVALID_PROCEDURE);
-		strcpy(m_Elevation,INVALID_PROCEDURE);
-		strcpy(m_UsageType,INVALID_PROCEDURE);
+		strcpy(m_CountryShort, INVALID_PROCEDURE);
+		strcpy(m_CountryLong, INVALID_PROCEDURE);
+		strcpy(m_Region, INVALID_PROCEDURE);
+		strcpy(m_City, INVALID_PROCEDURE);
+		strcpy(m_Latitude, INVALID_PROCEDURE);
+		strcpy(m_Longitude, INVALID_PROCEDURE);
+		strcpy(m_ZIPCode, INVALID_PROCEDURE);
+		strcpy(m_TimeZone, INVALID_PROCEDURE);
+		strcpy(m_ISP, INVALID_PROCEDURE);
+		strcpy(m_Domain, INVALID_PROCEDURE);
+		strcpy(m_NetSpeed, INVALID_PROCEDURE);
+		strcpy(m_IDDCode, INVALID_PROCEDURE);
+		strcpy(m_AreaCode, INVALID_PROCEDURE);
+		strcpy(m_WeatherStationCode, INVALID_PROCEDURE);
+		strcpy(m_WeatherStationName, INVALID_PROCEDURE);
+		strcpy(m_MCC, INVALID_PROCEDURE);
+		strcpy(m_MNC, INVALID_PROCEDURE);
+		strcpy(m_MobileBrand, INVALID_PROCEDURE);
+		strcpy(m_Elevation, INVALID_PROCEDURE);
+		strcpy(m_UsageType, INVALID_PROCEDURE);
+		strcpy(m_AddressType, INVALID_PROCEDURE);
+		strcpy(m_Category, INVALID_PROCEDURE);
 	}
-DECLARE_REGISTRY_RESOURCEID(IDR_COUNTRY)
+	DECLARE_REGISTRY_RESOURCEID(IDR_COUNTRY)
 
-DECLARE_PROTECT_FINAL_CONSTRUCT()
+	DECLARE_PROTECT_FINAL_CONSTRUCT()
 
-BEGIN_COM_MAP(CCountry)
-	COM_INTERFACE_ENTRY(ICountry)
-	COM_INTERFACE_ENTRY(IDispatch)
-	COM_INTERFACE_ENTRY(ISupportErrorInfo)
-END_COM_MAP()
+	BEGIN_COM_MAP(CCountry)
+		COM_INTERFACE_ENTRY(ICountry)
+		COM_INTERFACE_ENTRY(IDispatch)
+		COM_INTERFACE_ENTRY(ISupportErrorInfo)
+	END_COM_MAP()
 
-// ISupportsErrorInfo
+	// ISupportsErrorInfo
 	STDMETHOD(InterfaceSupportsErrorInfo)(REFIID riid);
 
-// ICountry
+	// ICountry
 public:
 	STDMETHOD(Version)(/*[out, retval]*/ BSTR* retval);
 	STDMETHOD(Initialize)(/*[in]*/ BSTR regcode, /*[out, retval]*/ BSTR* retval);
-	STDMETHOD(CountryCodeToName)(/*[int]*/ BSTR code, /*[out,retval]*/ BSTR *retval);
+	STDMETHOD(CountryCodeToName)(/*[int]*/ BSTR code, /*[out,retval]*/ BSTR* retval);
 	STDMETHOD(LookUpFullName)(/*[in]*/ BSTR ipaddr, /*[out,retval]*/ BSTR* retval);
 	STDMETHOD(LookUpLongName)(/*[in]*/ BSTR ipaddr, /*[out,retval]*/ BSTR* retval);
 	STDMETHOD(LookUpShortName)(/*[in]*/ BSTR ipaddr, /*[out,retval]*/ BSTR* retval);
@@ -113,6 +117,8 @@ public:
 	STDMETHOD(get_MobileBrand)(BSTR* pVal);
 	STDMETHOD(get_Elevation)(BSTR* pVal);
 	STDMETHOD(get_UsageType)(BSTR* pVal);
+	STDMETHOD(get_AddressType)(BSTR* pVal);
+	STDMETHOD(get_Category)(BSTR* pVal);
 	STDMETHOD(get_IsRegistered)(VARIANT_BOOL* pVal);
 };
 

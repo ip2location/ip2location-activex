@@ -7,8 +7,8 @@
 /* at Tue Jan 19 11:14:07 2038
  */
 /* Compiler settings for IP2Location.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
-    protocol : dce , ms_ext, c_ext, robust
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+    protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
@@ -173,6 +173,12 @@ EXTERN_C const IID IID_ICountry;
             /* [retval][out] */ BSTR *pVal) = 0;
         
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_UsageType( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_AddressType( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_Category( 
             /* [retval][out] */ BSTR *pVal) = 0;
         
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_IsRegistered( 
@@ -351,6 +357,14 @@ EXTERN_C const IID IID_ICountry;
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AddressType )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Category )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsRegistered )( 
             ICountry * This,
             /* [retval][out] */ VARIANT_BOOL *pVal);
@@ -471,6 +485,12 @@ EXTERN_C const IID IID_ICountry;
 
 #define ICountry_get_UsageType(This,pVal)	\
     ( (This)->lpVtbl -> get_UsageType(This,pVal) ) 
+
+#define ICountry_get_AddressType(This,pVal)	\
+    ( (This)->lpVtbl -> get_AddressType(This,pVal) ) 
+
+#define ICountry_get_Category(This,pVal)	\
+    ( (This)->lpVtbl -> get_Category(This,pVal) ) 
 
 #define ICountry_get_IsRegistered(This,pVal)	\
     ( (This)->lpVtbl -> get_IsRegistered(This,pVal) ) 

@@ -58,22 +58,22 @@ int inet_pton(int af, const char* src, void* dst) {
 
 STDMETHODIMP CCountry::InterfaceSupportsErrorInfo(REFIID riid)
 {
-	static const IID* arr[] = 
+	static const IID* arr[] =
 	{
 		&IID_ICountry
 	};
-	for (int i=0; i < sizeof(arr) / sizeof(arr[0]); i++)
+	for (int i = 0; i < sizeof(arr) / sizeof(arr[0]); i++)
 	{
-		if (InlineIsEqualGUID(*arr[i],riid))
+		if (InlineIsEqualGUID(*arr[i], riid))
 			return S_OK;
 	}
 	return S_FALSE;
 }
 
-STDMETHODIMP CCountry::LookUpShortName(BSTR ipaddr, BSTR *retval)
+STDMETHODIMP CCountry::LookUpShortName(BSTR ipaddr, BSTR* retval)
 {
 	//CComBSTR bstrResult(A2BSTR(CCountry::GetCodeByIPAddress(ipaddr,1)));
-	CComBSTR bstrResult(CCountry::GetCodeByIPAddress(ipaddr,1));
+	CComBSTR bstrResult(CCountry::GetCodeByIPAddress(ipaddr, 1));
 	*retval = bstrResult.Detach();
 	if (!registered) {
 		Sleep(DELAY);
@@ -81,10 +81,10 @@ STDMETHODIMP CCountry::LookUpShortName(BSTR ipaddr, BSTR *retval)
 	return S_OK;
 }
 
-STDMETHODIMP CCountry::LookUpLongName(BSTR ipaddr, BSTR *retval)
+STDMETHODIMP CCountry::LookUpLongName(BSTR ipaddr, BSTR* retval)
 {
 	//	CComBSTR bstrResult(A2BSTR(CCountry::GetCodeByIPAddress(ipaddr,2)));
-	CComBSTR bstrResult(CCountry::GetCodeByIPAddress(ipaddr,2));
+	CComBSTR bstrResult(CCountry::GetCodeByIPAddress(ipaddr, 2));
 	*retval = bstrResult.Detach();
 	if (!registered) {
 		Sleep(DELAY);
@@ -92,10 +92,10 @@ STDMETHODIMP CCountry::LookUpLongName(BSTR ipaddr, BSTR *retval)
 	return S_OK;
 }
 
-STDMETHODIMP CCountry::LookUpFullName(BSTR ipaddr, BSTR *retval)
+STDMETHODIMP CCountry::LookUpFullName(BSTR ipaddr, BSTR* retval)
 {
 	//CComBSTR bstrResult(A2BSTR(CCountry::GetCodeByIPAddress(ipaddr,2)));
-	CComBSTR bstrResult(CCountry::GetCodeByIPAddress(ipaddr,2));
+	CComBSTR bstrResult(CCountry::GetCodeByIPAddress(ipaddr, 2));
 	*retval = bstrResult.Detach();
 	if (!registered) {
 		Sleep(DELAY);
@@ -103,7 +103,7 @@ STDMETHODIMP CCountry::LookUpFullName(BSTR ipaddr, BSTR *retval)
 	return S_OK;
 }
 
-STDMETHODIMP CCountry::CountryCodeToName(BSTR code, BSTR *retval)
+STDMETHODIMP CCountry::CountryCodeToName(BSTR code, BSTR* retval)
 {
 	//CComBSTR name(A2BSTR(CCountry::GetFullNameByCode(code)));
 	CComBSTR name(CCountry::GetFullNameByCode(code));
@@ -111,10 +111,10 @@ STDMETHODIMP CCountry::CountryCodeToName(BSTR code, BSTR *retval)
 	return S_OK;
 }
 
-STDMETHODIMP CCountry::Initialize(BSTR regcode, BSTR *retval)
+STDMETHODIMP CCountry::Initialize(BSTR regcode, BSTR* retval)
 {
 	try {
-		if(SysStringLen(regcode) > 100){
+		if (SysStringLen(regcode) > 100) {
 			CComBSTR bstrResult("ERROR");
 			return S_FALSE;
 		}
@@ -134,24 +134,24 @@ STDMETHODIMP CCountry::Initialize(BSTR regcode, BSTR *retval)
 	return S_OK;
 }
 
-STDMETHODIMP CCountry::Version(BSTR *retval)
+STDMETHODIMP CCountry::Version(BSTR* retval)
 {
 	CComBSTR ver(VERSION);
 	*retval = ver.Detach();
 	return S_OK;
 }
 
-STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR *retval)
+STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR* retval)
 {
-	IP2LocationRecord * record = NULL;
+	IP2LocationRecord* record = NULL;
 
 	try {
-		if(SysStringLen(binpath) > 255){
+		if (SysStringLen(binpath) > 255) {
 			CComBSTR bstrResult("ERROR");
 			return S_FALSE;
 		}
 
-		if(SysStringLen(ipaddr) > 40){
+		if (SysStringLen(ipaddr) > 40) {
 			CComBSTR bstrResult("ERROR");
 			return S_FALSE;
 		}
@@ -169,8 +169,8 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR *retval)
 				strcpy(m_CountryLong, record->country_long);
 				strcpy(m_Region, record->region);
 				strcpy(m_City, record->city);
-				sprintf(m_Latitude,"%f", record->latitude);
-				sprintf(m_Longitude,"%f", record->longitude);
+				sprintf(m_Latitude, "%f", record->latitude);
+				sprintf(m_Longitude, "%f", record->longitude);
 				strcpy(m_ZIPCode, record->zipcode);
 				strcpy(m_TimeZone, record->timezone);
 				strcpy(m_ISP, record->isp);
@@ -183,8 +183,10 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR *retval)
 				strcpy(m_MCC, record->mcc);
 				strcpy(m_MNC, record->mnc);
 				strcpy(m_MobileBrand, record->mobilebrand);
-				sprintf(m_Elevation,"%f", record->elevation);
+				sprintf(m_Elevation, "%f", record->elevation);
 				strcpy(m_UsageType, record->usagetype);
+				strcpy(m_AddressType, record->addresstype);
+				strcpy(m_Category, record->category);
 			}
 			IP2Location_close(m_IP2LocationObj);
 			//CComBSTR bstrResult(A2BSTR("OK"));
@@ -213,6 +215,8 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR *retval)
 			strcpy(m_MobileBrand, INVALID_DBPATH);
 			strcpy(m_Elevation, INVALID_DBPATH);
 			strcpy(m_UsageType, INVALID_DBPATH);
+			strcpy(m_AddressType, INVALID_DBPATH);
+			strcpy(m_Category, INVALID_DBPATH);
 
 			sprintf(m_Message, "%s at %s.", INVALID_DBPATH, m_pIPDBPath);
 			//CComBSTR bstrResult(A2BSTR(m_Message));
@@ -236,17 +240,17 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR *retval)
 	return S_OK;
 }
 
-bool CCountry::ProcessIP(IP2LocationRecord ** record, char* IP )
+bool CCountry::ProcessIP(IP2LocationRecord** record, char* IP)
 {
 	if (m_IP2LocationObj != NULL)
 	{
 		*record = IP2Location_get_all(m_IP2LocationObj, IP);
 		if (*record != NULL) {
-			return true ;
+			return true;
 		}
 		else {
 			return false;
-		}	
+		}
 	}
 	return false;
 }
@@ -259,21 +263,22 @@ char* CCountry::GetCodeByIPAddress(BSTR ipaddr, short mode)
 	uint32_t low = 0;
 	uint32_t mid = 0;
 	uint32_t high = 0;
-	
+
 	if (parsed_ipv.ipversion == 4) {
 		high = MAXRECORD;
 		uint32_t ipno = parsed_ipv.ipv4;
 		if (ipno == MAX_IPV4_RANGE) {
-			return (char*) countrySHORT[ipcountry[MAXRECORD].co];
+			return (char*)countrySHORT[ipcountry[MAXRECORD].co];
 		}
 		else {
 			while (low <= high) {
-				mid = (uint32_t)((low + high)/2);
-				if ((ipno >= ipcountry[mid].ip) && (ipno < ipcountry[mid+1].ip)) {
+				mid = (uint32_t)((low + high) / 2);
+				if ((ipno >= ipcountry[mid].ip) && (ipno < ipcountry[mid + 1].ip)) {
 					if (mode == 1) {
-						return (char*) countrySHORT[ipcountry[mid].co];
-					} else {
-						return (char*) countryLONG[ipcountry[mid].co];
+						return (char*)countrySHORT[ipcountry[mid].co];
+					}
+					else {
+						return (char*)countryLONG[ipcountry[mid].co];
 					}
 				}
 				else if (ipno < ipcountry[mid].ip) {
@@ -293,24 +298,24 @@ char* CCountry::GetCodeByIPAddress(BSTR ipaddr, short mode)
 		struct in6_addr_local ipmax;
 		ipno = parsed_ipv.ipv6;
 		inet_pton(AF_INET6, "FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF", &ipmax);
-		
+
 		if (ipv6_compare(&ipno, &ipmax) == 0) {
-			return (char*) countrySHORT[ipcountryIPv6[MAXRECORDIPV6].co];
+			return (char*)countrySHORT[ipcountryIPv6[MAXRECORDIPV6].co];
 		}
 		else {
 			while (low <= high) {
-				mid = (uint32_t)((low + high)/2);
+				mid = (uint32_t)((low + high) / 2);
 				// IPv6 from the data file should be in address form as a string so we can use inet_pton to get byte array
 				inet_pton(AF_INET6, ipcountryIPv6[mid].ip, &ipfrom);
-				inet_pton(AF_INET6, ipcountryIPv6[mid+1].ip, &ipto);
+				inet_pton(AF_INET6, ipcountryIPv6[mid + 1].ip, &ipto);
 				if ((ipv6_compare(&ipno, &ipfrom) >= 0) && (ipv6_compare(&ipno, &ipto) < 0)) {
 					if (mode == 1) {
-						return (char*) countrySHORT[ipcountryIPv6[mid].co];
+						return (char*)countrySHORT[ipcountryIPv6[mid].co];
 					}
 					else {
-						return (char*) countryLONG[ipcountryIPv6[mid].co];
+						return (char*)countryLONG[ipcountryIPv6[mid].co];
 					}
-				} 
+				}
 				else if (ipv6_compare(&ipno, &ipfrom) < 0) {
 					high = mid - 1;
 				}
@@ -320,7 +325,7 @@ char* CCountry::GetCodeByIPAddress(BSTR ipaddr, short mode)
 			}
 		}
 	}
-	return (char*) countrySHORT[0];
+	return (char*)countrySHORT[0];
 }
 
 unsigned long CCountry::GetIPNoByIPAddress(BSTR ipaddr)
@@ -333,29 +338,31 @@ unsigned long CCountry::GetIPNoByIPAddress(BSTR ipaddr)
 	char c = 0;
 	USES_CONVERSION;
 	char* addr = OLE2A(ipaddr);
-	
-	for (i=0; i<4; i++) {
+
+	for (i = 0; i < 4; i++) {
 		while (1) {
-			c = (char) addr[k++];
+			c = (char)addr[k++];
 			if (c == '.' || c == '\0') {
 				tok[j] = '\0';
 				octet = atoi(tok);
 				if (octet > 255) {
 					return -1;
 				}
-				ipnum += (octet << ((3-i)*8));
+				ipnum += (octet << ((3 - i) * 8));
 				j = 0;
 				break;
-			} else if (c >= '0' && c<= '9') {
+			}
+			else if (c >= '0' && c <= '9') {
 				if (j > 2) {
 					return -1;
 				}
 				tok[j++] = c;
-			} else {
+			}
+			else {
 				return -1;
 			}
 		}
-		if(c == '\0' && i<3) {
+		if (c == '\0' && i < 3) {
 			return -1;
 		}
 	}
@@ -363,30 +370,30 @@ unsigned long CCountry::GetIPNoByIPAddress(BSTR ipaddr)
 }
 
 
-char* CCountry::GetFullNameByCode (BSTR code)
+char* CCountry::GetFullNameByCode(BSTR code)
 {
 	int i = 0;
 
 	USES_CONVERSION;
-	for(i=1; i<=MAXCOUNTRY; i++)
+	for (i = 1; i <= MAXCOUNTRY; i++)
 	{
-		if(!stricmp(OLE2A(code),countrySHORT[i])){
-			return (char*) countryLONG[i];
+		if (!stricmp(OLE2A(code), countrySHORT[i])) {
+			return (char*)countryLONG[i];
 		}
 	}
-	return (char*) countryLONG[0];
+	return (char*)countryLONG[0];
 }
 
-char* CCountry::GetAuthorization (BSTR code)
+char* CCountry::GetAuthorization(BSTR code)
 {
 	// no longer needed but keep for legacy users
 	CCountry::registered = true;
-	return (char*) "OK";
+	return (char*)"OK";
 }
 
-void CCountry::doLogging( char * Message )
+void CCountry::doLogging(char* Message)
 {
-	m_fLogger = fopen("C:\\ActiveX.log" ,"a+");
+	m_fLogger = fopen("C:\\ActiveX.log", "a+");
 	fprintf(m_fLogger, "%s\n", Message);
 	fclose(m_fLogger);
 }
@@ -538,6 +545,18 @@ STDMETHODIMP CCountry::get_UsageType(BSTR* pVal)
 {
 	//CComBSTR bstrResult(A2BSTR(m_UsageType));
 	CComBSTR bstrResult(m_UsageType);
+	*pVal = bstrResult.Detach();
+	return S_OK;
+}
+STDMETHODIMP CCountry::get_AddressType(BSTR* pVal)
+{
+	CComBSTR bstrResult(m_AddressType);
+	*pVal = bstrResult.Detach();
+	return S_OK;
+}
+STDMETHODIMP CCountry::get_Category(BSTR* pVal)
+{
+	CComBSTR bstrResult(m_Category);
 	*pVal = bstrResult.Detach();
 	return S_OK;
 }
