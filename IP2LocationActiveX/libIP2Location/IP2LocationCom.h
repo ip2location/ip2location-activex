@@ -29,7 +29,7 @@ extern "C" {
 #endif
 #endif
 
-#define API_VERSION   8.3.0
+#define API_VERSION   8.3.1
 #define MAX_IPV4_RANGE  4294967295U
 #define MAX_IPV6_RANGE  "340282366920938463463374607431768211455"
 #define IPV4 0

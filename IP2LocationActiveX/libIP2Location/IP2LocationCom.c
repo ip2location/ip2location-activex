@@ -897,67 +897,70 @@ IP2LocationRecord *IP2Location_new_record()
 
 void IP2Location_free_record(IP2LocationRecord *record)
 {
-	if (record->city != NULL)
-		free(record->city);
+	if (record != NULL) {
+		if (record->city != NULL)
+			free(record->city);
 
-	if (record->country_long != NULL)
-		free(record->country_long);
+		if (record->country_long != NULL)
+			free(record->country_long);
 
-	if (record->country_short != NULL)
-		free(record->country_short);
+		if (record->country_short != NULL)
+			free(record->country_short);
 
-	if (record->domain != NULL)
-		free(record->domain);
+		if (record->domain != NULL)
+			free(record->domain);
 
-	if (record->isp != NULL)
-		free(record->isp);
+		if (record->isp != NULL)
+			free(record->isp);
 
-	if (record->region != NULL)
-		free(record->region);
+		if (record->region != NULL)
+			free(record->region);
 
-	if (record->zipcode != NULL)
-		free(record->zipcode);
-		
-	if (record->timezone != NULL)
-		free(record->timezone);  
-		
-	if (record->netspeed != NULL)
-		free(record->netspeed);  
-	
-	if (record->iddcode != NULL)
-		free(record->iddcode);  
+		if (record->zipcode != NULL)
+			free(record->zipcode);
 
-	if (record->areacode != NULL)
-		free(record->areacode);  
+		if (record->timezone != NULL)
+			free(record->timezone);
 
-	if (record->weatherstationcode != NULL)
-		free(record->weatherstationcode);  
+		if (record->netspeed != NULL)
+			free(record->netspeed);
 
-	if (record->weatherstationname != NULL)
-		free(record->weatherstationname);  
+		if (record->iddcode != NULL)
+			free(record->iddcode);
 
-	if (record->mcc != NULL)
-		free(record->mcc);  
+		if (record->areacode != NULL)
+			free(record->areacode);
 
-	if (record->mnc != NULL)
-		free(record->mnc);  
+		if (record->weatherstationcode != NULL)
+			free(record->weatherstationcode);
 
-	if (record->mobilebrand != NULL)
-		free(record->mobilebrand);  
-	
-	// if (record->elevation != NULL)
-		// free(record->elevation);  
-	
-	if (record->usagetype != NULL)
-		free(record->usagetype);  
-	
-	if (record->addresstype != NULL)
-		free(record->addresstype);
+		if (record->weatherstationname != NULL)
+			free(record->weatherstationname);
 
-	if (record->category != NULL)
-		free(record->category);
+		if (record->mcc != NULL)
+			free(record->mcc);
 
-	free(record);
+		if (record->mnc != NULL)
+			free(record->mnc);
+
+		if (record->mobilebrand != NULL)
+			free(record->mobilebrand);
+
+		// if (record->elevation != NULL)
+			// free(record->elevation);  
+
+		if (record->usagetype != NULL)
+			free(record->usagetype);
+
+		if (record->addresstype != NULL)
+			free(record->addresstype);
+
+		if (record->category != NULL)
+			free(record->category);
+
+		free(record);
+
+	}
 }
 
 uint32_t IP2Location_read32(FILE *handle, uint32_t position)

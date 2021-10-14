@@ -233,6 +233,8 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR* retval)
 		//CComBSTR bstrResult(A2BSTR("ERROR"));
 		CComBSTR bstrResult("ERROR");
 		*retval = bstrResult.Detach();
+		//IP2Location_free_record(record);
+		//return S_FALSE;
 	}
 
 	IP2Location_free_record(record);
