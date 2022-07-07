@@ -351,3 +351,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+IP2LocationActiveX/ReleaseMinDependency/IP2Location.dll.recipe
+IP2LocationActiveX/x64/Release MinDependency/IP2Location.dll.recipe

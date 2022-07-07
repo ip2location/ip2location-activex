@@ -29,7 +29,7 @@ extern "C" {
 #endif
 #endif
 
-#define API_VERSION   8.3.1
+#define API_VERSION   8.4.0
 #define MAX_IPV4_RANGE  4294967295U
 #define MAX_IPV6_RANGE  "340282366920938463463374607431768211455"
 #define IPV4 0
@@ -168,9 +168,12 @@ extern "C" {
 	int IP2Location_initialize(IP2Location* loc);
 	IP2LocationRecord* IP2Location_new_record();
 	uint32_t IP2Location_read32(FILE* handle, uint32_t position);
+	uint32_t IP2Location_read32_row(uint8_t* buffer, uint32_t position);
+	struct in6_addr_local IP2Location_read128_row(uint8_t* buffer, uint32_t position);
 	uint8_t IP2Location_read8(FILE* handle, uint32_t position);
 	char* IP2Location_readStr(FILE* handle, uint32_t position);
 	float IP2Location_readFloat(FILE* handle, uint32_t position);
+	float IP2Location_readFloat_row(uint8_t* buffer, uint32_t position);
 	uint32_t IP2Location_ip2no(char* ip);
 	//struct in6_addr_local IP2Location_ipv6_to_no(char* ipaddr);
 	int IP2Location_ip_is_ipv4(char* ipaddr);
