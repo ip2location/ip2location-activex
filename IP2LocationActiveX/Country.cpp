@@ -1,3 +1,5 @@
+#pragma warning(disable : 4996)
+
 #include "stdafx.h"
 #include "IP2Location.h"
 #include "Country.h"

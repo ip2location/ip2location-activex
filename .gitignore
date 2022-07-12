@@ -353,3 +353,4 @@ MigrationBackup/
 .ionide/
 IP2LocationActiveX/ReleaseMinDependency/IP2Location.dll.recipe
 IP2LocationActiveX/x64/Release MinDependency/IP2Location.dll.recipe
+*.am

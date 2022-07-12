@@ -1,3 +1,5 @@
+#pragma warning(disable : 4996)
+
 #ifndef __COUNTRY_H_
 #define __COUNTRY_H_
 #define INVALID_PROCEDURE "Please execute LookUp() method to initialize this property"
