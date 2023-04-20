@@ -181,6 +181,15 @@ EXTERN_C const IID IID_ICountry;
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_Category( 
             /* [retval][out] */ BSTR *pVal) = 0;
         
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_District( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_ASN( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_AS( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_IsRegistered( 
             /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
         
@@ -365,6 +374,18 @@ EXTERN_C const IID IID_ICountry;
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_District )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ASN )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AS )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsRegistered )( 
             ICountry * This,
             /* [retval][out] */ VARIANT_BOOL *pVal);
@@ -491,6 +512,15 @@ EXTERN_C const IID IID_ICountry;
 
 #define ICountry_get_Category(This,pVal)	\
     ( (This)->lpVtbl -> get_Category(This,pVal) ) 
+
+#define ICountry_get_District(This,pVal)	\
+    ( (This)->lpVtbl -> get_District(This,pVal) ) 
+
+#define ICountry_get_ASN(This,pVal)	\
+    ( (This)->lpVtbl -> get_ASN(This,pVal) ) 
+
+#define ICountry_get_AS(This,pVal)	\
+    ( (This)->lpVtbl -> get_AS(This,pVal) ) 
 
 #define ICountry_get_IsRegistered(This,pVal)	\
     ( (This)->lpVtbl -> get_IsRegistered(This,pVal) ) 

@@ -28,27 +28,30 @@ void writestuff( char * Message )
 
 //#include "imath.h"
 
-uint8_t COUNTRY_POSITION[26]             = {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
-uint8_t REGION_POSITION[26]              = {0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
-uint8_t CITY_POSITION[26]                = {0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
-uint8_t ISP_POSITION[26]                 = {0, 0, 3, 0, 5, 0, 7, 5, 7, 0, 8, 0, 9, 0, 9, 0, 9, 0, 9, 7, 9, 0, 9, 7, 9, 9};
-uint8_t LATITUDE_POSITION[26]            = {0, 0, 0, 0, 0, 5, 5, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
-uint8_t LONGITUDE_POSITION[26]           = {0, 0, 0, 0, 0, 6, 6, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6};
-uint8_t DOMAIN_POSITION[26]              = {0, 0, 0, 0, 0, 0, 0, 6, 8, 0, 9, 0, 10,0, 10, 0, 10, 0, 10, 8, 10, 0, 10, 8, 10, 10};
-uint8_t ZIPCODE_POSITION[26]             = {0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 0, 7, 7, 7, 0, 7, 0, 7, 7, 7, 0, 7, 7};
-uint8_t TIMEZONE_POSITION[26]            = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 7, 8, 8, 8, 7, 8, 0, 8, 8, 8, 0, 8, 8};
-uint8_t NETSPEED_POSITION[26]            = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 11,0, 11,8, 11, 0, 11, 0, 11, 0, 11, 11};
-uint8_t IDDCODE_POSITION[26]             = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 12, 0, 12, 0, 12, 9, 12, 0, 12, 12};
-uint8_t AREACODE_POSITION[26]            = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10 ,13 ,0, 13, 0, 13, 10, 13, 0, 13, 13};
-uint8_t WEATHERSTATIONCODE_POSITION[26]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 14, 0, 14, 0, 14, 0, 14, 14};
-uint8_t WEATHERSTATIONNAME_POSITION[26]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 0, 15, 0, 15, 0, 15, 15};
-uint8_t MCC_POSITION[26]                 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 16, 0, 16, 9, 16, 16};
-uint8_t MNC_POSITION[26]                 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10,17, 0, 17, 10, 17, 17};
-uint8_t MOBILEBRAND_POSITION[26]         = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11,18, 0, 18, 11, 18, 18};
-uint8_t ELEVATION_POSITION[26]           = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 19, 0, 19, 19};
-uint8_t USAGETYPE_POSITION[26]           = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 20, 20};
-uint8_t ADDRESSTYPE_POSITION[26]         = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21 };
-uint8_t CATEGORY_POSITION[26]            = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22 };
+uint8_t COUNTRY_POSITION[27]             = {0, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2};
+uint8_t REGION_POSITION[27]              = {0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3};
+uint8_t CITY_POSITION[27]                = {0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4};
+uint8_t ISP_POSITION[27]                 = {0, 0, 3, 0, 5, 0, 7, 5, 7, 0, 8, 0, 9, 0, 9, 0, 9, 0, 9, 7, 9, 0, 9, 7, 9, 9, 9};
+uint8_t LATITUDE_POSITION[27]            = {0, 0, 0, 0, 0, 5, 5, 0, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5};
+uint8_t LONGITUDE_POSITION[27]           = {0, 0, 0, 0, 0, 6, 6, 0, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6};
+uint8_t DOMAIN_POSITION[27]              = {0, 0, 0, 0, 0, 0, 0, 6, 8, 0, 9, 0, 10,0, 10, 0, 10, 0, 10, 8, 10, 0, 10, 8, 10, 10, 10};
+uint8_t ZIPCODE_POSITION[27]             = {0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 7, 7, 0, 7, 7, 7, 0, 7, 0, 7, 7, 7, 0, 7, 7, 7};
+uint8_t TIMEZONE_POSITION[27]            = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 8, 7, 8, 8, 8, 7, 8, 0, 8, 8, 8, 0, 8, 8, 8};
+uint8_t NETSPEED_POSITION[27]            = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 11,0, 11,8, 11, 0, 11, 0, 11, 0, 11, 11, 11};
+uint8_t IDDCODE_POSITION[27]             = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 12, 0, 12, 0, 12, 9, 12, 0, 12, 12, 12};
+uint8_t AREACODE_POSITION[27]            = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10 ,13 ,0, 13, 0, 13, 10, 13, 0, 13, 13, 13};
+uint8_t WEATHERSTATIONCODE_POSITION[27]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 14, 0, 14, 0, 14, 0, 14, 14, 14};
+uint8_t WEATHERSTATIONNAME_POSITION[27]  = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 15, 0, 15, 0, 15, 0, 15, 15, 15};
+uint8_t MCC_POSITION[27]                 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 16, 0, 16, 9, 16, 16, 16};
+uint8_t MNC_POSITION[27]                 = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10,17, 0, 17, 10, 17, 17, 17};
+uint8_t MOBILEBRAND_POSITION[27]         = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11,18, 0, 18, 11, 18, 18, 18};
+uint8_t ELEVATION_POSITION[27]           = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 19, 0, 19, 19, 19};
+uint8_t USAGETYPE_POSITION[27]           = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 12, 20, 20, 20};
+uint8_t ADDRESSTYPE_POSITION[27]         = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 21};
+uint8_t CATEGORY_POSITION[27]            = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 22};
+uint8_t DISTRICT_POSITION[27]            = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23};
+uint8_t ASN_POSITION[27]                 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 };
+uint8_t AS_POSITION[27]                  = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25 };
 
 IP2Location *IP2Location_open(char *db)
 {
@@ -412,6 +415,36 @@ IP2LocationRecord* IP2Location_get_category(IP2Location* loc, char* ip)
 	}
 }
 
+IP2LocationRecord* IP2Location_get_district(IP2Location* loc, char* ip)
+{
+	if (IP2Location_ip_is_ipv6(ip)) {
+		return IP2Location_get_ipv6_record(loc, ip, DISTRICT);
+	}
+	else {
+		return IP2Location_get_record(loc, ip, DISTRICT);
+	}
+}
+
+IP2LocationRecord* IP2Location_get_asn(IP2Location* loc, char* ip)
+{
+	if (IP2Location_ip_is_ipv6(ip)) {
+		return IP2Location_get_ipv6_record(loc, ip, ASN);
+	}
+	else {
+		return IP2Location_get_record(loc, ip, ASN);
+	}
+}
+
+IP2LocationRecord* IP2Location_get_as(IP2Location* loc, char* ip)
+{
+	if (IP2Location_ip_is_ipv6(ip)) {
+		return IP2Location_get_ipv6_record(loc, ip, AS);
+	}
+	else {
+		return IP2Location_get_record(loc, ip, AS);
+	}
+}
+
 IP2LocationRecord *IP2Location_get_all(IP2Location *loc, char *ip)
 {
 	if (IP2Location_ip_is_ipv6(ip)) {
@@ -481,6 +514,9 @@ IP2LocationRecord *IP2Location_get_ipv6_record(IP2Location *loc, char *ipstring,
 		record->usagetype = strdup(INVALID_IPV6_ADDRESS);
 		record->addresstype = strdup(INVALID_IPV6_ADDRESS);
 		record->category = strdup(INVALID_IPV6_ADDRESS);
+		record->district = strdup(INVALID_IPV6_ADDRESS);
+		record->asn = strdup(INVALID_IPV6_ADDRESS);
+		record->as = strdup(INVALID_IPV6_ADDRESS);
 		return record;
 	}
 	
@@ -678,6 +714,27 @@ IP2LocationRecord *IP2Location_get_ipv6_record(IP2Location *loc, char *ipstring,
 			else {
 				record->category = strdup(NOT_SUPPORTED);
 			}
+
+			if ((mode & DISTRICT) && (DISTRICT_POSITION[dbtype] != 0)) {
+				record->district = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (DISTRICT_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->district = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & ASN) && (ASN_POSITION[dbtype] != 0)) {
+				record->asn = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASN_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->asn = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & AS) && (AS_POSITION[dbtype] != 0)) {
+				record->as = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (AS_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->as = strdup(NOT_SUPPORTED);
+			}
 			return record;
 		}
 		else {
@@ -745,6 +802,9 @@ IP2LocationRecord *IP2Location_get_record(IP2Location *loc, char *ipstring, uint
 		record->usagetype = strdup(INVALID_IPV4_ADDRESS);
 		record->addresstype = strdup(INVALID_IPV4_ADDRESS);
 		record->category = strdup(INVALID_IPV4_ADDRESS);
+		record->district = strdup(INVALID_IPV4_ADDRESS);
+		record->asn = strdup(INVALID_IPV4_ADDRESS);
+		record->as = strdup(INVALID_IPV4_ADDRESS);
 		return record;
 	}
 
@@ -949,6 +1009,27 @@ IP2LocationRecord *IP2Location_get_record(IP2Location *loc, char *ipstring, uint
 			else {
 				record->category = strdup(NOT_SUPPORTED);
 			}
+
+			if ((mode & DISTRICT) && (DISTRICT_POSITION[dbtype] != 0)) {
+				record->district = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (DISTRICT_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->district = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & ASN) && (ASN_POSITION[dbtype] != 0)) {
+				record->asn = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASN_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->asn = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & AS) && (AS_POSITION[dbtype] != 0)) {
+				record->as = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (AS_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->as = strdup(NOT_SUPPORTED);
+			}
 			return record;
 		} else {
 			if ( ipno < ipfrom ) {
@@ -1031,6 +1112,15 @@ void IP2Location_free_record(IP2LocationRecord *record)
 
 		if (record->category != NULL)
 			free(record->category);
+
+		if (record->district != NULL)
+			free(record->district);
+
+		if (record->asn != NULL)
+			free(record->asn);
+
+		if (record->as != NULL)
+			free(record->as);
 
 		free(record);
 

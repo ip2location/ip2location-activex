@@ -48,6 +48,9 @@ private:
 	char m_UsageType[256];
 	char m_AddressType[2];
 	char m_Category[256];
+	char m_District[256];
+	char m_ASN[256];
+	char m_AS[256];
 	char m_Message[1024];
 
 public:
@@ -76,6 +79,9 @@ public:
 		strcpy(m_UsageType, INVALID_PROCEDURE);
 		strcpy(m_AddressType, INVALID_PROCEDURE);
 		strcpy(m_Category, INVALID_PROCEDURE);
+		strcpy(m_District, INVALID_PROCEDURE);
+		strcpy(m_ASN, INVALID_PROCEDURE);
+		strcpy(m_AS, INVALID_PROCEDURE);
 	}
 	DECLARE_REGISTRY_RESOURCEID(IDR_COUNTRY)
 
@@ -121,6 +127,9 @@ public:
 	STDMETHOD(get_UsageType)(BSTR* pVal);
 	STDMETHOD(get_AddressType)(BSTR* pVal);
 	STDMETHOD(get_Category)(BSTR* pVal);
+	STDMETHOD(get_District)(BSTR* pVal);
+	STDMETHOD(get_ASN)(BSTR* pVal);
+	STDMETHOD(get_AS)(BSTR* pVal);
 	STDMETHOD(get_IsRegistered)(VARIANT_BOOL* pVal);
 };
 

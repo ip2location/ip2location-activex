@@ -59,6 +59,9 @@ Public Class IP2Location
             line += "<tr><td>UsageType = " & obj.UsageType & "</td></tr>"
             line += "<tr><td>AddressType = " & obj.AddressType & "</td></tr>"
             line += "<tr><td>Category = " & obj.Category & "</td></tr>"
+            line += "<tr><td>District = " & obj.District & "</td></tr>"
+            line += "<tr><td>ASN = " & obj.ASN & "</td></tr>"
+            line += "<tr><td>AS = " & obj.AS & "</td></tr>"
             line += "</table>"
         Else
             line += "Error : " & str & "<br>"

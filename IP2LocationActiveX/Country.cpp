@@ -189,6 +189,9 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR* retval)
 				strcpy(m_UsageType, record->usagetype);
 				strcpy(m_AddressType, record->addresstype);
 				strcpy(m_Category, record->category);
+				strcpy(m_District, record->district);
+				strcpy(m_ASN, record->asn);
+				strcpy(m_AS, record->as);
 			}
 			IP2Location_close(m_IP2LocationObj);
 			//CComBSTR bstrResult(A2BSTR("OK"));
@@ -219,6 +222,9 @@ STDMETHODIMP CCountry::LookUp(BSTR binpath, BSTR ipaddr, BSTR* retval)
 			strcpy(m_UsageType, INVALID_DBPATH);
 			strcpy(m_AddressType, INVALID_DBPATH);
 			strcpy(m_Category, INVALID_DBPATH);
+			strcpy(m_District, INVALID_DBPATH);
+			strcpy(m_ASN, INVALID_DBPATH);
+			strcpy(m_AS, INVALID_DBPATH);
 
 			sprintf(m_Message, "%s at %s.", INVALID_DBPATH, m_pIPDBPath);
 			//CComBSTR bstrResult(A2BSTR(m_Message));
@@ -561,6 +567,24 @@ STDMETHODIMP CCountry::get_AddressType(BSTR* pVal)
 STDMETHODIMP CCountry::get_Category(BSTR* pVal)
 {
 	CComBSTR bstrResult(m_Category);
+	*pVal = bstrResult.Detach();
+	return S_OK;
+}
+STDMETHODIMP CCountry::get_District(BSTR* pVal)
+{
+	CComBSTR bstrResult(m_District);
+	*pVal = bstrResult.Detach();
+	return S_OK;
+}
+STDMETHODIMP CCountry::get_ASN(BSTR* pVal)
+{
+	CComBSTR bstrResult(m_ASN);
+	*pVal = bstrResult.Detach();
+	return S_OK;
+}
+STDMETHODIMP CCountry::get_AS(BSTR* pVal)
+{
+	CComBSTR bstrResult(m_AS);
 	*pVal = bstrResult.Detach();
 	return S_OK;
 }

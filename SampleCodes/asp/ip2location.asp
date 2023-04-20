@@ -46,6 +46,9 @@ Enter an IPv4 or IPv6 address.
 			line = line & "<tr><td>UsageType = " & obj.UsageType & "</td></tr>"
 			line = line & "<tr><td>AddressType = " & obj.AddressType & "</td></tr>"
 			line = line & "<tr><td>Category = " & obj.Category & "</td></tr>"
+			line = line & "<tr><td>District = " & obj.District & "</td></tr>"
+			line = line & "<tr><td>ASN = " & obj.ASN & "</td></tr>"
+			line = line & "<tr><td>AS = " & obj.AS & "</td></tr>"
 			Response.Write(line)
 			Response.Write	"</table>"
 		Else

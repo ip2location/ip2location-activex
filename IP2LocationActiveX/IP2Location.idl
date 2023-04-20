@@ -44,7 +44,10 @@ import "ocidl.idl";
 		[propget, id(27), helpstring("property UsageType")] HRESULT UsageType([out, retval] BSTR* pVal);
 		[propget, id(28), helpstring("property AddressType")] HRESULT AddressType([out, retval] BSTR* pVal);
 		[propget, id(29), helpstring("property Category")] HRESULT Category([out, retval] BSTR* pVal);
-		[propget, id(30), helpstring("property IsRegistered")] HRESULT IsRegistered([out, retval] VARIANT_BOOL* pVal);
+		[propget, id(30), helpstring("property District")] HRESULT District([out, retval] BSTR* pVal);
+		[propget, id(31), helpstring("property ASN")] HRESULT ASN([out, retval] BSTR* pVal);
+		[propget, id(32), helpstring("property AS")] HRESULT AS([out, retval] BSTR* pVal);
+		[propget, id(33), helpstring("property IsRegistered")] HRESULT IsRegistered([out, retval] VARIANT_BOOL* pVal);
 	};
 
 [
