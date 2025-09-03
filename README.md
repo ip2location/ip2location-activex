@@ -1,6 +1,6 @@
 # IP2Location IP Geolocation ActiveX Component
 
-This IP2Location IP Geolocation ActiveX Component allows user to query an IP address for useful IP geolocation info such as country, region or state, city, latitude and longitude, ZIP/Postal code, time zone, Internet Service Provider (ISP) or company name, domain name, net speed, area code, weather station code, weather station name, mobile country code (MCC), mobile network code (MNC) and carrier brand, elevation, usage type, address type, IAB category, district, autonomous system number (ASN) and autonomous system (AS). This IP geolocation component uses **IP2Location BIN Data** file to lookup IP addresses and the binary data file can be downloaded at
+This IP2Location IP Geolocation ActiveX Component allows user to query an IP address for useful IP geolocation info such as country, region or state, city, latitude and longitude, ZIP/Postal code, time zone, Internet Service Provider (ISP) or company name, domain name, net speed, area code, weather station code, weather station name, mobile country code (MCC), mobile network code (MNC) and carrier brand, elevation, usage type, address type, IAB category, district, autonomous system number (ASN), autonomous system (AS), AS domain, AS usage type and AS CIDR. This IP geolocation component uses **IP2Location BIN Data** file to lookup IP addresses and the binary data file can be downloaded at
 
 * Free IP2Location IP Geolocation BIN Data: https://lite.ip2location.com
 * Commercial IP2Location IP Geolocation BIN Data: https://www.ip2location.com/database/ip2location
@@ -46,6 +46,9 @@ Below are the result fields.
 |District|District name.|
 |ASN|Autonomous system number.|
 |AS|Autonomous system.|
+|ASDomain|Domain name of the AS registrant.|
+|ASUsageType|Usage type of the AS registrant.|
+|ASCIDR|CIDR range for the whole AS.|
 
 ## Usage
 See the SampleCodes folder.

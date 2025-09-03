@@ -354,3 +354,7 @@ MigrationBackup/
 IP2LocationActiveX/ReleaseMinDependency/IP2Location.dll.recipe
 IP2LocationActiveX/x64/Release MinDependency/IP2Location.dll.recipe
 *.am
+
+**/*.tlog
+/IP2LocationActiveX/ReleaseMinDependency/IP2Location.tlog
+/IP2LocationActiveX/x64/Release MinDependency/IP2Location.tlog

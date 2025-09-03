@@ -26,7 +26,7 @@ private:
 	void doLogging(char* Message);
 	IP2Location* m_IP2LocationObj;
 	char* m_pIPDBPath;
-	char m_CountryShort[3];
+	char m_CountryShort[256];
 	char m_CountryLong[256];
 	char m_Region[256];
 	char m_City[256];
@@ -46,11 +46,14 @@ private:
 	char m_MobileBrand[256];
 	char m_Elevation[256];
 	char m_UsageType[256];
-	char m_AddressType[2];
+	char m_AddressType[256];
 	char m_Category[256];
 	char m_District[256];
 	char m_ASN[256];
 	char m_AS[256];
+	char m_ASDomain[256];
+	char m_ASUsageType[256];
+	char m_ASCIDR[256];
 	char m_Message[1024];
 
 public:
@@ -82,6 +85,9 @@ public:
 		strcpy(m_District, INVALID_PROCEDURE);
 		strcpy(m_ASN, INVALID_PROCEDURE);
 		strcpy(m_AS, INVALID_PROCEDURE);
+		strcpy(m_ASDomain, INVALID_PROCEDURE);
+		strcpy(m_ASUsageType, INVALID_PROCEDURE);
+		strcpy(m_ASCIDR, INVALID_PROCEDURE);
 	}
 	DECLARE_REGISTRY_RESOURCEID(IDR_COUNTRY)
 
@@ -130,6 +136,9 @@ public:
 	STDMETHOD(get_District)(BSTR* pVal);
 	STDMETHOD(get_ASN)(BSTR* pVal);
 	STDMETHOD(get_AS)(BSTR* pVal);
+	STDMETHOD(get_ASDomain)(BSTR* pVal);
+	STDMETHOD(get_ASUsageType)(BSTR* pVal);
+	STDMETHOD(get_ASCIDR)(BSTR* pVal);
 	STDMETHOD(get_IsRegistered)(VARIANT_BOOL* pVal);
 };
 

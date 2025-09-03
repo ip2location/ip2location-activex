@@ -62,6 +62,9 @@ namespace IP2LocationActiveXSampleCSharp
 				line += "<tr><td>District = " + obj.District + "</td></tr>";
 				line += "<tr><td>ASN = " + obj.ASN + "</td></tr>";
 				line += "<tr><td>AS = " + obj.AS + "</td></tr>";
+				line += "<tr><td>ASDomain = " + obj.ASDomain + "</td></tr>";
+				line += "<tr><td>ASUsageType = " + obj.ASUsageType + "</td></tr>";
+				line += "<tr><td>ASCIDR = " + obj.ASCIDR + "</td></tr>";
 				line += "</table>";
 			}
 			else

@@ -3,11 +3,11 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 8.01.0622 */
+ /* File created by MIDL compiler version 8.01.0628 */
 /* at Tue Jan 19 11:14:07 2038
  */
 /* Compiler settings for IP2Location.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0628 
     protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
@@ -40,6 +40,14 @@
 
 #if defined(_MSC_VER) && (_MSC_VER >= 1020)
 #pragma once
+#endif
+
+#ifndef DECLSPEC_XFGVIRT
+#if defined(_CONTROL_FLOW_GUARD_XFG)
+#define DECLSPEC_XFGVIRT(base, func) __declspec(xfg_virtual(base, func))
+#else
+#define DECLSPEC_XFGVIRT(base, func)
+#endif
 #endif
 
 /* Forward Declarations */ 
@@ -190,6 +198,15 @@ EXTERN_C const IID IID_ICountry;
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_AS( 
             /* [retval][out] */ BSTR *pVal) = 0;
         
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_ASDomain( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_ASUsageType( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
+        virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_ASCIDR( 
+            /* [retval][out] */ BSTR *pVal) = 0;
+        
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_IsRegistered( 
             /* [retval][out] */ VARIANT_BOOL *pVal) = 0;
         
@@ -202,28 +219,34 @@ EXTERN_C const IID IID_ICountry;
     {
         BEGIN_INTERFACE
         
+        DECLSPEC_XFGVIRT(IUnknown, QueryInterface)
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ICountry * This,
             /* [in] */ REFIID riid,
             /* [annotation][iid_is][out] */ 
             _COM_Outptr_  void **ppvObject);
         
+        DECLSPEC_XFGVIRT(IUnknown, AddRef)
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
             ICountry * This);
         
+        DECLSPEC_XFGVIRT(IUnknown, Release)
         ULONG ( STDMETHODCALLTYPE *Release )( 
             ICountry * This);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfoCount)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfoCount )( 
             ICountry * This,
             /* [out] */ UINT *pctinfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetTypeInfo)
         HRESULT ( STDMETHODCALLTYPE *GetTypeInfo )( 
             ICountry * This,
             /* [in] */ UINT iTInfo,
             /* [in] */ LCID lcid,
             /* [out] */ ITypeInfo **ppTInfo);
         
+        DECLSPEC_XFGVIRT(IDispatch, GetIDsOfNames)
         HRESULT ( STDMETHODCALLTYPE *GetIDsOfNames )( 
             ICountry * This,
             /* [in] */ REFIID riid,
@@ -232,6 +255,7 @@ EXTERN_C const IID IID_ICountry;
             /* [in] */ LCID lcid,
             /* [size_is][out] */ DISPID *rgDispId);
         
+        DECLSPEC_XFGVIRT(IDispatch, Invoke)
         /* [local] */ HRESULT ( STDMETHODCALLTYPE *Invoke )( 
             ICountry * This,
             /* [annotation][in] */ 
@@ -251,141 +275,189 @@ EXTERN_C const IID IID_ICountry;
             /* [annotation][out] */ 
             _Out_opt_  UINT *puArgErr);
         
+        DECLSPEC_XFGVIRT(ICountry, LookUpShortName)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *LookUpShortName )( 
             ICountry * This,
             /* [in] */ BSTR ipaddr,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, LookUpLongName)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *LookUpLongName )( 
             ICountry * This,
             /* [in] */ BSTR ipaddr,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, LookUpFullName)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *LookUpFullName )( 
             ICountry * This,
             /* [in] */ BSTR ipaddr,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, CountryCodeToName)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *CountryCodeToName )( 
             ICountry * This,
             /* [in] */ BSTR code,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, Initialize)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Initialize )( 
             ICountry * This,
             /* [in] */ BSTR regcode,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, Version)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Version )( 
             ICountry * This,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, LookUp)
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *LookUp )( 
             ICountry * This,
             /* [in] */ BSTR binpath,
             BSTR ipaddr,
             /* [retval][out] */ BSTR *retval);
         
+        DECLSPEC_XFGVIRT(ICountry, get_CountryShort)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CountryShort )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_CountryLong)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_CountryLong )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_Region)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Region )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_City)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_City )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_Latitude)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Latitude )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_Longitude)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Longitude )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_ZIPCode)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ZIPCode )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_TimeZone)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_TimeZone )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_ISP)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ISP )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_Domain)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Domain )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_NetSpeed)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_NetSpeed )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_IDDCode)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IDDCode )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_AreaCode)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AreaCode )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_WeatherStationCode)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WeatherStationCode )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_WeatherStationName)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_WeatherStationName )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_MCC)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MCC )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_MNC)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MNC )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_MobileBrand)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_MobileBrand )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_Elevation)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Elevation )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_UsageType)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_UsageType )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_AddressType)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AddressType )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_Category)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_Category )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_District)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_District )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_ASN)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ASN )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_AS)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_AS )( 
             ICountry * This,
             /* [retval][out] */ BSTR *pVal);
         
+        DECLSPEC_XFGVIRT(ICountry, get_ASDomain)
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ASDomain )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        DECLSPEC_XFGVIRT(ICountry, get_ASUsageType)
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ASUsageType )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        DECLSPEC_XFGVIRT(ICountry, get_ASCIDR)
+        /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_ASCIDR )( 
+            ICountry * This,
+            /* [retval][out] */ BSTR *pVal);
+        
+        DECLSPEC_XFGVIRT(ICountry, get_IsRegistered)
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_IsRegistered )( 
             ICountry * This,
             /* [retval][out] */ VARIANT_BOOL *pVal);
@@ -521,6 +593,15 @@ EXTERN_C const IID IID_ICountry;
 
 #define ICountry_get_AS(This,pVal)	\
     ( (This)->lpVtbl -> get_AS(This,pVal) ) 
+
+#define ICountry_get_ASDomain(This,pVal)	\
+    ( (This)->lpVtbl -> get_ASDomain(This,pVal) ) 
+
+#define ICountry_get_ASUsageType(This,pVal)	\
+    ( (This)->lpVtbl -> get_ASUsageType(This,pVal) ) 
+
+#define ICountry_get_ASCIDR(This,pVal)	\
+    ( (This)->lpVtbl -> get_ASCIDR(This,pVal) ) 
 
 #define ICountry_get_IsRegistered(This,pVal)	\
     ( (This)->lpVtbl -> get_IsRegistered(This,pVal) ) 

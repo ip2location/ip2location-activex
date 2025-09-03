@@ -29,38 +29,41 @@ extern "C" {
 #endif
 #endif
 
-#define API_VERSION   8.5.0
+#define API_VERSION   8.6.0
 #define MAX_IPV4_RANGE  4294967295U
 #define MAX_IPV6_RANGE  "340282366920938463463374607431768211455"
 #define IPV4 0
 #define IPV6 1
 
-#define  COUNTRYSHORT           0x0000001
-#define  COUNTRYLONG            0x0000002
-#define  REGION                 0x0000004
-#define  CITY                   0x0000008
-#define  ISP                    0x0000010
-#define  LATITUDE               0x0000020
-#define  LONGITUDE              0x0000040
-#define  DOMAINNAME             0x0000080
-#define  ZIPCODE                0x0000100
-#define  TIMEZONE               0x0000200
-#define  NETSPEED               0x0000400 
-#define  IDDCODE                0x0000800
-#define  AREACODE               0x0001000
-#define  WEATHERSTATIONCODE     0x0002000
-#define  WEATHERSTATIONNAME     0x0004000
-#define  MCC                    0x0008000
-#define  MNC                    0x0010000
-#define  MOBILEBRAND            0x0020000
-#define  ELEVATION              0x0040000
-#define  USAGETYPE              0x0080000
-#define  ADDRESSTYPE            0x0100000
-#define  CATEGORY               0x0200000
-#define  DISTRICT               0x0400000
-#define  ASN                    0x0800000
-#define  AS                     0x1000000
-#define  ALL          COUNTRYSHORT | COUNTRYLONG | REGION | CITY | ISP | LATITUDE | LONGITUDE | DOMAINNAME | ZIPCODE | TIMEZONE | NETSPEED | IDDCODE | AREACODE | WEATHERSTATIONCODE | WEATHERSTATIONNAME | MCC | MNC | MOBILEBRAND | ELEVATION | USAGETYPE | ADDRESSTYPE | CATEGORY | DISTRICT | ASN | AS
+#define  COUNTRYSHORT           0x00000001
+#define  COUNTRYLONG            0x00000002
+#define  REGION                 0x00000004
+#define  CITY                   0x00000008
+#define  ISP                    0x00000010
+#define  LATITUDE               0x00000020
+#define  LONGITUDE              0x00000040
+#define  DOMAINNAME             0x00000080
+#define  ZIPCODE                0x00000100
+#define  TIMEZONE               0x00000200
+#define  NETSPEED               0x00000400 
+#define  IDDCODE                0x00000800
+#define  AREACODE               0x00001000
+#define  WEATHERSTATIONCODE     0x00002000
+#define  WEATHERSTATIONNAME     0x00004000
+#define  MCC                    0x00008000
+#define  MNC                    0x00010000
+#define  MOBILEBRAND            0x00020000
+#define  ELEVATION              0x00040000
+#define  USAGETYPE              0x00080000
+#define  ADDRESSTYPE            0x00100000
+#define  CATEGORY               0x00200000
+#define  DISTRICT               0x00400000
+#define  ASN                    0x00800000
+#define  AS                     0x01000000
+#define  ASDOMAIN               0x02000000
+#define  ASUSAGETYPE            0x04000000
+#define  ASCIDR                 0x08000000
+#define  ALL          COUNTRYSHORT | COUNTRYLONG | REGION | CITY | ISP | LATITUDE | LONGITUDE | DOMAINNAME | ZIPCODE | TIMEZONE | NETSPEED | IDDCODE | AREACODE | WEATHERSTATIONCODE | WEATHERSTATIONNAME | MCC | MNC | MOBILEBRAND | ELEVATION | USAGETYPE | ADDRESSTYPE | CATEGORY | DISTRICT | ASN | AS | ASDOMAIN | ASUSAGETYPE | ASCIDR
 
 #define  DEFAULT	     0x0001
 #define  NO_EMPTY_STRING 0x0002
@@ -121,6 +124,9 @@ extern "C" {
 		char* district;
 		char* asn;
 		char* as;
+		char* asdomain;
+		char* asusagetype;
+		char* ascidr;
 	} IP2LocationRecord;
 
 	struct in6_addr_local
@@ -167,6 +173,9 @@ extern "C" {
 	IP2LocationRecord* IP2Location_get_district(IP2Location* loc, char* ip);
 	IP2LocationRecord* IP2Location_get_asn(IP2Location* loc, char* ip);
 	IP2LocationRecord* IP2Location_get_as(IP2Location* loc, char* ip);
+	IP2LocationRecord* IP2Location_get_asdomain(IP2Location* loc, char* ip);
+	IP2LocationRecord* IP2Location_get_asusagetype(IP2Location* loc, char* ip);
+	IP2LocationRecord* IP2Location_get_ascidr(IP2Location* loc, char* ip);
 	IP2LocationRecord* IP2Location_get_all(IP2Location* loc, char* ip);
 	void IP2Location_free_record(IP2LocationRecord* record);
 

@@ -46,6 +46,9 @@ Enter an IPv4 or IPv6 address.
 			$line = $line . "<tr><td>District = " . $Obj->District . "</td></tr>";
 			$line = $line . "<tr><td>ASN = " . $Obj->ASN . "</td></tr>";
 			$line = $line . "<tr><td>AS = " . $Obj->AS . "</td></tr>";
+			$line = $line . "<tr><td>ASDomain = " . $Obj->ASDomain . "</td></tr>";
+			$line = $line . "<tr><td>ASUsageType = " . $Obj->ASUsageType . "</td></tr>";
+			$line = $line . "<tr><td>ASCIDR = " . $Obj->ASCIDR . "</td></tr>";
 			echo $line;
 			echo "</table>";
 		}

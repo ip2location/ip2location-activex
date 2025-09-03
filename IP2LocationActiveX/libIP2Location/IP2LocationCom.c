@@ -52,6 +52,9 @@ uint8_t CATEGORY_POSITION[27]            = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 uint8_t DISTRICT_POSITION[27]            = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23};
 uint8_t ASN_POSITION[27]                 = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24 };
 uint8_t AS_POSITION[27]                  = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25 };
+uint8_t ASDOMAIN_POSITION[27]            = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 26 };
+uint8_t ASUSAGETYPE_POSITION[27]         = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 27 };
+uint8_t ASCIDR_POSITION[27]              = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 28 };
 
 IP2Location *IP2Location_open(char *db)
 {
@@ -445,6 +448,36 @@ IP2LocationRecord* IP2Location_get_as(IP2Location* loc, char* ip)
 	}
 }
 
+IP2LocationRecord* IP2Location_get_asdomain(IP2Location* loc, char* ip)
+{
+	if (IP2Location_ip_is_ipv6(ip)) {
+		return IP2Location_get_ipv6_record(loc, ip, ASDOMAIN);
+	}
+	else {
+		return IP2Location_get_record(loc, ip, ASDOMAIN);
+	}
+}
+
+IP2LocationRecord* IP2Location_get_asusagetype(IP2Location* loc, char* ip)
+{
+	if (IP2Location_ip_is_ipv6(ip)) {
+		return IP2Location_get_ipv6_record(loc, ip, ASUSAGETYPE);
+	}
+	else {
+		return IP2Location_get_record(loc, ip, ASUSAGETYPE);
+	}
+}
+
+IP2LocationRecord* IP2Location_get_ascidr(IP2Location* loc, char* ip)
+{
+	if (IP2Location_ip_is_ipv6(ip)) {
+		return IP2Location_get_ipv6_record(loc, ip, ASCIDR);
+	}
+	else {
+		return IP2Location_get_record(loc, ip, ASCIDR);
+	}
+}
+
 IP2LocationRecord *IP2Location_get_all(IP2Location *loc, char *ip)
 {
 	if (IP2Location_ip_is_ipv6(ip)) {
@@ -517,6 +550,9 @@ IP2LocationRecord *IP2Location_get_ipv6_record(IP2Location *loc, char *ipstring,
 		record->district = strdup(INVALID_IPV6_ADDRESS);
 		record->asn = strdup(INVALID_IPV6_ADDRESS);
 		record->as = strdup(INVALID_IPV6_ADDRESS);
+		record->asdomain = strdup(INVALID_IPV6_ADDRESS);
+		record->asusagetype = strdup(INVALID_IPV6_ADDRESS);
+		record->ascidr = strdup(INVALID_IPV6_ADDRESS);
 		return record;
 	}
 	
@@ -735,6 +771,27 @@ IP2LocationRecord *IP2Location_get_ipv6_record(IP2Location *loc, char *ipstring,
 			else {
 				record->as = strdup(NOT_SUPPORTED);
 			}
+
+			if ((mode & ASDOMAIN) && (ASDOMAIN_POSITION[dbtype] != 0)) {
+				record->asdomain = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASDOMAIN_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->asdomain = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & ASUSAGETYPE) && (ASUSAGETYPE_POSITION[dbtype] != 0)) {
+				record->asusagetype = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASUSAGETYPE_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->asusagetype = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & ASCIDR) && (ASCIDR_POSITION[dbtype] != 0)) {
+				record->ascidr = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASCIDR_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->ascidr = strdup(NOT_SUPPORTED);
+			}
 			return record;
 		}
 		else {
@@ -805,6 +862,9 @@ IP2LocationRecord *IP2Location_get_record(IP2Location *loc, char *ipstring, uint
 		record->district = strdup(INVALID_IPV4_ADDRESS);
 		record->asn = strdup(INVALID_IPV4_ADDRESS);
 		record->as = strdup(INVALID_IPV4_ADDRESS);
+		record->asdomain = strdup(INVALID_IPV4_ADDRESS);
+		record->asusagetype = strdup(INVALID_IPV4_ADDRESS);
+		record->ascidr = strdup(INVALID_IPV4_ADDRESS);
 		return record;
 	}
 
@@ -1030,6 +1090,27 @@ IP2LocationRecord *IP2Location_get_record(IP2Location *loc, char *ipstring, uint
 			else {
 				record->as = strdup(NOT_SUPPORTED);
 			}
+
+			if ((mode & ASDOMAIN) && (ASDOMAIN_POSITION[dbtype] != 0)) {
+				record->asdomain = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASDOMAIN_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->asdomain = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & ASUSAGETYPE) && (ASUSAGETYPE_POSITION[dbtype] != 0)) {
+				record->asusagetype = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASUSAGETYPE_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->asusagetype = strdup(NOT_SUPPORTED);
+			}
+
+			if ((mode & ASCIDR) && (ASCIDR_POSITION[dbtype] != 0)) {
+				record->ascidr = IP2Location_readStr(handle, IP2Location_read32_row(rowbuffer, 4 * (ASCIDR_POSITION[dbtype] - 2)));
+			}
+			else {
+				record->ascidr = strdup(NOT_SUPPORTED);
+			}
 			return record;
 		} else {
 			if ( ipno < ipfrom ) {
@@ -1122,6 +1203,15 @@ void IP2Location_free_record(IP2LocationRecord *record)
 		if (record->as != NULL)
 			free(record->as);
 
+		if (record->asdomain != NULL)
+			free(record->asdomain);
+
+		if (record->asusagetype != NULL)
+			free(record->asusagetype);
+
+		if (record->ascidr != NULL)
+			free(record->ascidr);
+
 		free(record);
 
 	}
@@ -1160,7 +1250,6 @@ uint8_t IP2Location_read8(FILE *handle, uint32_t position)
 	}		
 	return ret;
 }
-
 
 char *IP2Location_readStr(FILE *handle, uint32_t position)
 {
